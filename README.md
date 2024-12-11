@@ -152,7 +152,7 @@ By clicking the `Run Omnipose` button, you can generate outlines for the selecte
 
 - `Use custom model`
     
-    Omnipose will use the custom model you provide to generate outlines. For now, it only runs on the setting of dim 2, nclasses 2 and nchan 1. I should add more options in the future.
+    Omnipose will use the custom model you provide to generate outlines.
 
     This option has default arguments use_gpu, exclude_on_edges, and no_npy.
 
