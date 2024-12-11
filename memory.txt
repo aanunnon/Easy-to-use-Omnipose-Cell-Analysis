@@ -1,0 +1,14 @@
+FIJI:
+
+raw image:
+
+save folder:
+
+omnipose custom model:
+
+command line:
+--use_gpu --pretrained_model bact_phase_omni --save_outlines --save_txt --in_folders --no_npy --exclude_on_edges
+
+
+
+
