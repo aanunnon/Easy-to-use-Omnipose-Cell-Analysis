@@ -98,18 +98,17 @@ def saveFolderUI(frame):
     - A button to let user to change the path to a new directory.
     '''
     global PATH_SELECTED
-    savePath = Memory.getSavePath()
 
     title = Label(frame, text="Save Folder", background="lightgray", fg="gray0")
     title.pack(fill="x")
 
-    pathDisplay = Label(frame, text=savePath, wraplength=400, bg="gray90", fg="gray15", justify="left")
+    pathDisplay = Label(frame, text=Memory.getSavePath(), wraplength=400, bg="gray90", fg="gray15", justify="left")
     pathDisplay.pack(fill="both")
 
     buttonChooseDirectory = Button(frame, text="choose folder", command=lambda: [askDirectory(), changeText(pathDisplay, PATH_SELECTED), Memory.changeMemory(PATH_SELECTED, "savePath")])
     buttonChooseDirectory.pack()
 
-    buttonChooseDirectory = Button(frame, text="Open folder", command=lambda: [System.openInExplorer(savePath)])
+    buttonChooseDirectory = Button(frame, text="Open folder", command=lambda: [System.openInExplorer(Memory.getSavePath())])
     buttonChooseDirectory.pack()
 
 def preprocessImageButton(frame):

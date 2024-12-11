@@ -11,7 +11,6 @@ This program is a new version of the [Omnipose_Cellprofiler-Pipeline](https://gi
 To use this program, you need to do the following:
 - Have FIJI/ImageJ installed
 - Set up an environment in Anaconda
-- Fix an import error of one file inside local omnipose package
 
 
 ## Set up environment
@@ -28,27 +27,24 @@ To use this program, you need to do the following:
 
 2. Open terminal. You should see `(base)` in your command line. This tells you that you’re in your base conda environment. 
 
-3. Create a new environment named omnipose by running the following command in your terminal:
+3. Create a new environment named easyOmnipose by running the following command in your terminal:
 
     ```bash
-    conda create -n omnipose 'python==3.10.12' pytorch
+    conda create -n easyOmnipose 'python==3.10.12' pytorch
     ```
 
-4. Activate this new omnipose environment, you should then see `(omnipose)` in your command line:
+4. Activate this new easyOmnipose environment, you should then see `(easyOmnipose)` in your command line:
 
     ```bash
-    conda activate omnipose
-    ```
-5. Install omnipose package into your new environment:
-
-    ```bash
-    pip install omnipose==1.0.6
+    conda activate easyOmnipose
     ```
 
-    Also install natsort. This prevents an error from Omnipose package:
+5. Install the latest omnipose package into your new environment:
 
     ```bash
-    pip install natsort
+    git clone https://github.com/kevinjohncutler/omnipose.git
+    cd test
+    pip install -e .
     ```
 
 6. Install other necessary packages into your new environment: 
@@ -65,8 +61,9 @@ To use this program, you need to do the following:
     pip install pyimagej==1.5.0
     ```
 
+7. The new environment is now set up. You will need to run the program in this environment. See Run the program section below to learn how to run the program.
 
-## Test the program
+# Run the program
 First, Download ZIP of this repository.
 
 Then, unzip the ZIP file. Inside the folder, find the controller file named `ControllerVer3.py`. This file is the main program that you will run.
@@ -76,10 +73,10 @@ There are two ways to run this program: through termial or through an IDE like V
 
 #### Run through terminal
 1. Open terminal.
-2. Activate the omnipose environment, you should then see `(omnipose)` in your command line:
+2. Activate the easyOmnipose environment, you should then see `(easyOmnipose)` in your command line:
 
     ```bash
-    conda activate omnipose
+    conda activate easyOmnipose
     ```
 
 3. In the terminal, write the following command, but don't press enter yet:
@@ -94,56 +91,26 @@ There are two ways to run this program: through termial or through an IDE like V
     python3 /path/to/ControllerVer3.py
     ```
 
-5. Press enter to run the program. You should see an exception thrown in the terminal. Go to the Fix ImportError section to fix this exception.
+5. Press enter to run the program. You should see the program's window pop up after around 10-20 seconds. Go to How to use the program section to learn how to use the program.
 
 
 #### Run through an IDE
 1. Open an IDE like VSCode.
 2. Open the `ControllerVer3.py` file in the IDE.
-3. Select the omnipose environment. 
+3. Select the easyOmnipose environment. 
    
-   If you're using VSCode, Press `Ctrl+Shift+P` to open the command palette. Type "Python" and choose `Python: Select Interpreter`. Select your omnipose environment in the dropdown list, which should look like this:
+   If you're using VSCode, Press `Ctrl+Shift+P` to open the command palette. Type "Python" and choose `Python: Select Interpreter`. Select your easyOmnipose environment in the dropdown list, which should look like this:
     ```
-    Python 3.10.9 ('omnipose') /opt/anaconda3/envs/omnipose/bin/python
+    Python 3.10.9 ('easyOmnipose') /opt/anaconda3/envs/easyOmnipose/bin/python
     ```
-1. Run the file. You should see an exception thrown in the terminal. Go to the Fix ImportError section to fix this exception.
+4. Run the file. You should see the program's window pop up after around 10-15 seconds. Go to How to use the program section to learn how to use the program.
 
-
-## Fix ImportError
-```
-File "/opt/anaconda3/envs/test/lib/python3.10/site-packages/peakdetect/peakdetect.py", line 5, in <module>
-    from scipy import fft, ifft
-ImportError: cannot import name 'ifft' from 'scipy' (/opt/anaconda3/envs/test/lib/python3.10/site-packages/scipy/__init__.py)
-```
-To fix this error, you need to go to the the `peakdetect.py` file that throws the importError. 
-
-1. Copy the path to the `peakdetect.py` from the error message, in this case `/opt/anaconda3/envs/test/lib/python3.10/site-packages/peakdetect/peakdetect.py`.
-2. In your file explorer, navigate to the `peakdetect.py` file. 
-3. Open the file in a code editor like VSCode. You can also use a text editor, like TextEdit on Mac.
-4. The error happens at line 5 inside the `peakdetect.py`. Change the code at line 5
-
-    from:
-    
-    <img src="READMEImages/BeforeFix.png" width="400">
-
-    ```python
-    from scipy import fft, ifft
-    ```
-    to:
-
-    <img src="READMEImages/AfterFix.png" width="400">
-
-    ```python
-    from scipy.fft import fft, ifft
-    ```
-
-5. Save the modified `peakdetect.py` file. You should now be able to run the program.
 
 # How to use the program
 
 <img src="READMEImages/ProgramUI.png" width="600">
 
-You can run this program by running its `ControllerVer3.py` file in the omnipose environment, through terminal or an IDE like VSCode. See more details in the Test the program section above.
+You can run this program by running its `ControllerVer3.py` file in the easyOmnipose environment, through terminal or an IDE like VSCode. See more details in the Run the program section above.
 
 The program has two important buttons: `Preprocess image` on the bottom left and `Run Omnipose` on the bottom right.
 
@@ -179,15 +146,19 @@ By clicking the `Run Omnipose` button, you can generate outlines for the selecte
 
 - `Use built-in model`
 
-    This option can only process single-channel folder. It will use the built-in model in Omnipose to generate outlines for the selected channel.
+    Omnipose will use the built-in model in Omnipose to generate outlines.
+
+    This option has default arguments use_gpu, exclude_on_edges, and no_npy.
 
 - `Use custom model`
     
-    This option can only process single-channel folder. It will use the custom model you provide to generate outlines for the selected channel.
+    Omnipose will use the custom model you provide to generate outlines. For now, it only runs on the setting of dim 2, nclasses 2 and nchan 1. I should add more options in the future.
+
+    This option has default arguments use_gpu, exclude_on_edges, and no_npy.
 
 - `Use manual command line`
 
-    This option is essentially the same as running Omnipose in the terminal. It will run the command shown inside the gray box. You can enter your own command in the entry.
+    This option is essentially the same as running Omnipose in the terminal. If this option is selected, `Run Omnipose` will run the command shown inside the gray box. You can enter your own command in the entry.
 
 After running Omnipose, you will see the outlines generated by Omnipose. The outlines will be saved inside the selected channel folder. An additional image stack of the outlines will be created if the checkbox of `Also create a stacked version of outlines` is checked.
 
@@ -205,7 +176,7 @@ With the `Also create a stacked version of outlines` checked:
 
 The Outline generated by Omnipose will be saved in the `outlines` folder to be viewed, and the `txt_outlines` folder will contain the outlines in text format, which can be used for further analysis.
 
-#### Example of Omnipose outline generated from a cell image:
+#### Example of Omnipose outline generated from a cell image
 
 Before:
 
@@ -214,3 +185,5 @@ Before:
 After:
 
 <img src="READMEImages/CellImageSegmented.png" width="500">
+
+Outlines are drawn in red.
