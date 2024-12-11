@@ -204,8 +204,8 @@ def OmniposeUI(frame):
     runOmniposeFrame = Frame(frame, borderwidth=2, relief="groove")
     runOmniposeFrame.pack(fill="both", expand=True)
 
-    stackResult = IntVar(frame, 0)
-    stackResultCheckbutton = Checkbutton(runOmniposeFrame, text="Also create a stacked version of Outlines", variable=stackResult, onvalue=1, offvalue=0)
+    stackResult = IntVar(frame, 1)
+    stackResultCheckbutton = Checkbutton(runOmniposeFrame, text="Also create a stacked version of outlines", variable=stackResult, onvalue=1, offvalue=0)
     stackResultCheckbutton.pack()
 
     button_runOmnipose = Button(runOmniposeFrame, text="Run Omnipose", command= lambda: [Omnipose.runOmnipose(selectedChannelDisplay["text"], omniposeOption.get(), builtInModel.get(), commandLineDisplay["text"], stackResult.get())])
