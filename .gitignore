@@ -1,2 +1,6 @@
 /.DS_Store
 /.vscode
+/Utilities/__pycache__
+/Tkinter/__pycache__
+/ImageProcessing/__pycache__
+/ImageJ/__pycache__
