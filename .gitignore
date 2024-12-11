@@ -1,8 +1,4 @@
-/.DS_Store
-/ImageJ/.DS_Store
-/READMEImages/.DS_Store
-/.vscode
-/Utilities/__pycache__
-/Tkinter/__pycache__
-/ImageProcessing/__pycache__
-/ImageJ/__pycache__
+/memory.txt
+*.DS_Store
+.vscode/
+__pycache__/

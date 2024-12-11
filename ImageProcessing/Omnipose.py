@@ -45,16 +45,19 @@ def runOmnipose(channelFolder, omniposeOption, builtInModel, commandLine, stackR
     if (stackResult == 1):
         print('\nOmnipose.py: Stacking result...')
         fijiPath = Memory.getFijiPath()
-        processingFolder = channelFolder + '/Outlines'
+        processingFolder = channelFolder + '/outlines'
         savePath = channelFolder
         if fijiPath!='' and os.path.isdir(processingFolder):
             SavePlugin.saveToPlugins(fijiPath, 'ImageJ/Plugins/Images_To_Stack.py')
             RunPlugin.RefreshPlugin(processingFolder, savePath, fijiPath, 'Images_To_Stack.py')
             RunPlugin.runPlugin(fijiPath, 'Images_To_Stack.py')
         else:
-            if fijiPath!='':
+            if fijiPath=='':
                 print('\nERROR: Omnipose.py: Path to FIJI/ImageJ is empty, cannot stack outlines')
                 ui.updateStatus('ERROR: Path to FIJI/ImageJ is empty, cannot stack outlines')
+            else:
+                print('\nERROR: Omnipose.py: Path to outlines is empty, cannot stack outlines')
+                ui.updateStatus('ERROR: Path to outlines is empty, cannot stack outlines')
 
     print('Omnipose.py: Omnipose done.')
     ui.updateStatus("Omnipose done.")
