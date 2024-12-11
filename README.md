@@ -22,7 +22,7 @@ To use this program, you need to do the following:
 
 2. Make sure you know where the FIJI/ImageJ program is installed. You will need to choose the FIJI/ImageJ path manually in this program.
 
-#### Environment setup
+#### Setup new Anaconda environment
 
 1. Download and install [Anaconda](https://www.anaconda.com/download).
 
@@ -45,13 +45,13 @@ To use this program, you need to do the following:
     pip install omnipose==1.0.6
     ```
 
-    Also install natsort:
+    Also install natsort. This prevents an error from Omnipose package:
 
     ```bash
     pip install natsort
     ```
 
-6. Install other necessary packages:
+6. Install other necessary packages into your new environment: 
 
     ```bash
     conda install conda-forge::'openjdk=22.0.1'
@@ -153,21 +153,21 @@ By clicking the `Preprocess image` button, you can split your selected Raw Image
 
 For example, if you have a 2-channel image stack, this will split it into 2 separate channel folders, each containing the frames of that channel. There will also be 2 new image stacks, containing the frames for each channel. The result will be saved to the Save Folder you selected, and the Raw Image will not be modified.
 
-Before: 
+Selected raw image stack: 
 
 <img src="READMEImages/BeforePreprocess1.png" width="150">
 
-After: 
+Preprocessed output in the Save Folder: 
 
 <img src="READMEImages/AfterPreprocess1.png" width="400">
 
 You can also preprocess a folder of images. The program will first stack the images inside the folder into a single image stack, and split them into channels.
 
-Before: 
+Selected folder of raw images: 
 
 <img src="READMEImages/BeforePreprocess2.png" width="130">
 
-After: 
+Preprocessed output in the Save Folder: 
 
 <img src="READMEImages/AfterPreprocess2.png" width="260">
 
@@ -175,7 +175,7 @@ After:
 
 <img src="READMEImages/RunOmniposeUI.png" width="300">
 
-By clicking the `Run Omnipose` button, you can generate outlines for the selected channel. There're three options you can choose to run Omnipose: "Use built-in model", "Use custom model", and "Use manual command line".
+By clicking the `Run Omnipose` button, you can generate outlines for the selected channel folder. There're three options you can choose to run Omnipose: "Use built-in model", "Use custom model", and "Use manual command line".
 
 - `Use built-in model`
 
