@@ -91,7 +91,7 @@ There are two ways to run this program: through termial or through an IDE like V
     python3 /path/to/ControllerVer3.py
     ```
 
-5. Press enter to run the program. You should see the program's window pop up after around 10-20 seconds. Go to How to use the program section to learn how to use the program.
+5. Press enter to run the program. You should see the program's window pop up after around 30 seconds. Go to How to use the program section to learn how to use the program.
 
 
 #### Run through an IDE
@@ -103,7 +103,7 @@ There are two ways to run this program: through termial or through an IDE like V
     ```
     Python 3.10.9 ('easyOmnipose') /opt/anaconda3/envs/easyOmnipose/bin/python
     ```
-4. Run the file. You should see the program's window pop up after around 10-15 seconds. Go to How to use the program section to learn how to use the program.
+4. Run the file. You should see the program's window pop up after around 30 seconds. Go to How to use the program section to learn how to use the program.
 
 
 # How to use the program
