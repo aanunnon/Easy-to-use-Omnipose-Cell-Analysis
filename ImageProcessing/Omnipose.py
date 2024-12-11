@@ -35,7 +35,7 @@ def runOmnipose(channelFolder, omniposeOption, builtInModel, commandLine, stackR
         if (customModel == ''):
             print('\nERROR: Omnipose.py: Custom model path is empty.')
             return
-        command = ['omnipose', '--dir', channelFolder, '--use_gpu', '--pretrained_model', customModel, '--dim 2', '--nclasses 2', '--nchan 1', '--save_outlines', '--save_txt', '--in_folders', '--no_npy', '--exclude_on_edges']
+        command = ['omnipose', '--dir', channelFolder, '--use_gpu', '--pretrained_model', customModel, '--save_outlines', '--save_txt', '--in_folders', '--no_npy', '--exclude_on_edges']
         subprocess.run(command)
 
 
