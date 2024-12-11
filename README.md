@@ -43,7 +43,7 @@ To use this program, you need to do the following:
 
     ```bash
     git clone https://github.com/kevinjohncutler/omnipose.git
-    cd test
+    cd omnipose
     pip install -e .
     ```
 
